@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+.urbanist{
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  min-width: 200%;
+  animation: marquee 20s linear infinite;
+}
