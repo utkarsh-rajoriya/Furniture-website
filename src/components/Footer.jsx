@@ -5,10 +5,14 @@ import {
   MapPin,
   MessageCircle,
 } from "lucide-react";
+import { motion } from "motion/react"
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-gray-300 py-10">
+    <motion.footer className="bg-black text-gray-300 py-10"
+     whileInView={{ opacity: [0, 1], y: [100, 0] }}
+     transition={{ duration: 0.5 , delay: 0.2 , ease: "easeInOut"}}
+    >
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Logo + Name */}
         <div>
@@ -63,7 +67,7 @@ const Footer = () => {
       <div className="mt-10 border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
         © {new Date().getFullYear()} Your Company. All rights reserved.
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

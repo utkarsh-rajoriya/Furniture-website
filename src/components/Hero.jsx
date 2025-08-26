@@ -1,7 +1,11 @@
+import { motion } from "motion/react"
 const Hero = () => {
   return (
-    <div className="my-3">
-      <div className="flex justify-center items-center">
+    <div className="my-3 overflow-y-hidden">
+      <motion.div className="flex justify-center items-center "
+       whileInView={{ opacity: [0, 1], y: [-80, 0] }}
+       transition={{ duration: 0.5 , delay: 0.2 , ease: "easeInOut" , type: "spring"  , stiffness: 100  , damping: 18}}
+      >
         {/* Container with rounded corners */}
         <div className="hero-vid relative w-[95%] h-[500px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden rounded-2xl shadow-lg">
           {/* Background video */}
@@ -49,7 +53,7 @@ const Hero = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

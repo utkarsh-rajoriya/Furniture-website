@@ -1,3 +1,5 @@
+import { motion } from "motion/react"
+
 const LivingRoomGallery = ({ category }) => {
   const images = {
     "Living Room": [
@@ -65,7 +67,10 @@ const LivingRoomGallery = ({ category }) => {
   const activeImages = images[category] || images["Living Room"];
 
   return (
-    <div className="my-[4rem] overflow-x-auto scrollbar-hide">
+    <motion.div className="my-[4rem] overflow-x-auto scrollbar-hide"
+     whileInView={{ opacity: [0, 1], y: [100, 0] }}
+     transition={{ duration: 0.5 , delay: 0.2 , ease: "easeInOut" , type: "spring"  , stiffness: 100  , damping: 10}}
+    >
       {/* Use group to trigger child hover effects */}
       <div className="flex gap-4 min-w-[50rem] group">
         {activeImages.map((img) => (
@@ -91,7 +96,7 @@ const LivingRoomGallery = ({ category }) => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

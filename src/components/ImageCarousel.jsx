@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "motion/react"
 
 const images = [
   {
@@ -34,9 +35,12 @@ export default function ImageCarousel() {
   }, []);
 
   return (
-    <div className="grid md:grid-cols-2 gap-10  py-12  md:py-16 items-center overflow-hidden">
+    <div className="grid md:grid-cols-2 gap-10  py-8  md:py-16 items-center overflow-hidden">
       {/* Left Side Text */}
-      <div className="space-y-5 text-center md:text-left">
+      <motion.div className="space-y-5 text-center md:text-left"
+       whileInView={{ opacity: [0, 1], x: [-100, 0] }}
+       transition={{ duration: 0.5 , delay: 0.2 , ease: "easeInOut" , type: "spring"  , stiffness: 100  , damping: 10}}
+      >
         <p className="text-xs md:text-sm uppercase tracking-wide text-gray-500">
           Sustainable by Design
         </p>
@@ -65,10 +69,13 @@ export default function ImageCarousel() {
             <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Right Side Carousel */}
-      <div className="relative flex justify-center items-center h-[360px] sm:h-[420px] md:h-[480px]">
+      <motion.div className="relative flex justify-center items-center h-[360px] sm:h-[420px] md:h-[480px]"
+       whileInView={{ opacity: [0, 1], x: [100, 0] }}
+       transition={{ duration: 0.5 , delay: 0.2 , ease: "easeInOut" , type: "spring"  , stiffness: 100  , damping: 10}}
+      >
         {images.map((img, index) => {
           const isActive = index === current;
           const isPrev =
@@ -104,7 +111,7 @@ export default function ImageCarousel() {
             </div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 }
